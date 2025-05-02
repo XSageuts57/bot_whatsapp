@@ -18,12 +18,15 @@ client.on('ready', () => {
     console.log('✅ Bot listo para usar');
 });
 
-client.on('message', message => {
+client.on('message', async (message) => {
     const msg = message.body.trim().toLowerCase();
+
+    // Obtén el chat en el que se ha enviado el mensaje
+    const chat = await message.getChat();
 
     switch (msg) {
         case 'hola':
-            message.reply(
+            client.sendMessage(chat.id._serialized, 
 `👋 ¡Hola! Bienvenido a *Sageuts Company* 🧠💻
 
 Somos especialistas en:
@@ -42,12 +45,11 @@ Escribe el número de la opción que te interesa:
 3️⃣ Hablar con un asesor
 4️⃣ Ver portafolio
 
-Estamos aquí para ayudarte 🚀`
-            );
+Estamos aquí para ayudarte 🚀`);
             break;
         case '1':
         case '1️⃣':
-            message.reply(
+            client.sendMessage(chat.id._serialized, 
 `🌐 *Desarrollo de Página Web*
 
 Creamos páginas modernas, rápidas y personalizadas para tu negocio:
@@ -59,12 +61,11 @@ Creamos páginas modernas, rápidas y personalizadas para tu negocio:
 ⏱️ Tiempo estimado: 7 días hábiles
 ¿Deseas agendar una reunión sin costo?
 
-Responde con: *Quiero agendar*`
-            );
+Responde con: *Quiero agendar*`);
             break;
         case '2':
         case '2️⃣':
-            message.reply(
+            client.sendMessage(chat.id._serialized, 
 `🤖 *Automatización de WhatsApp*
 
 Creamos bots que:
@@ -75,12 +76,11 @@ Creamos bots que:
 🛠️ Se adapta a tu negocio: tiendas, restaurantes, servicios y más.
 💵 Desde *S/ 350* con servidor activo 24/7
 
-¿Te gustaría ver una demo? Responde con: *Demo bot*`
-            );
+¿Te gustaría ver una demo? Responde con: *Demo bot*`);
             break;
         case '3':
         case '3️⃣':
-            message.reply(
+            client.sendMessage(chat.id._serialized, 
 `👤 *Atención personalizada*
 
 Un asesor estará disponible para resolver tus dudas y ayudarte a elegir la mejor solución.
@@ -89,12 +89,11 @@ Un asesor estará disponible para resolver tus dudas y ayudarte a elegir la mejo
 💬 Te contactaremos pronto por este mismo medio.
 
 También puedes escribir directamente a:
-📞 +51 999 888 777`
-            );
+📞 +51 999 888 777`);
             break;
         case '4':
         case '4️⃣':
-            message.reply(
+            client.sendMessage(chat.id._serialized, 
 `📁 *Portafolio de Proyectos*
 
 Aquí puedes ver algunos de nuestros trabajos recientes:
@@ -102,20 +101,20 @@ Aquí puedes ver algunos de nuestros trabajos recientes:
 - 📚 www.academiadigital.pe
 - 💼 www.estudiolegal360.com
 
-¿Deseas que te enviemos un PDF detallado? Responde con: *Portafolio PDF*`
-            );
+¿Deseas que te enviemos un PDF detallado? Responde con: *Portafolio PDF*`);
             break;
         case 'quiero agendar':
-            message.reply('✅ ¡Perfecto! Un asesor se pondrá en contacto contigo en breve para agendar una reunión gratuita.');
+            client.sendMessage(chat.id._serialized, '✅ ¡Perfecto! Un asesor se pondrá en contacto contigo en breve para agendar una reunión gratuita.');
             break;
         case 'demo bot':
-            message.reply('🔧 Puedes probar una demo básica escribiendo: *Hola* o *Opciones*. Además, te enviaremos un video demostrativo al correo si lo deseas.');
+            client.sendMessage(chat.id._serialized, '🔧 Puedes probar una demo básica escribiendo: *Hola* o *Opciones*. Además, te enviaremos un video demostrativo al correo si lo deseas.');
             break;
         case 'portafolio pdf':
-            message.reply('📨 Envíanos tu correo y te mandaremos nuestro portafolio completo en formato PDF.');
+            client.sendMessage(chat.id._serialized, '📨 Envíanos tu correo y te mandaremos nuestro portafolio completo en formato PDF.');
             break;
         default:
             // Puedes agregar una respuesta por defecto si quieres capturar mensajes no previstos
+            client.sendMessage(chat.id._serialized, 'Lo siento, no entiendo ese comando. Por favor, elige una opción válida.');
             break;
     }
 });
