@@ -1,2 +1,3 @@
-2025/05/02-16:38:24.495 a50 Creating DB H:\beja\bot_whatsapp\bot_whatsapp\.wwebjs_auth\session\Default\Session Storage since it was missing.
-2025/05/02-16:38:24.536 a50 Reusing MANIFEST H:\beja\bot_whatsapp\bot_whatsapp\.wwebjs_auth\session\Default\Session Storage/MANIFEST-000001
+2025/05/02-16:49:25.616 32c8 Reusing MANIFEST H:\beja\bot_whatsapp\bot_whatsapp\.wwebjs_auth\session\Default\Session Storage/MANIFEST-000001
+2025/05/02-16:49:25.617 32c8 Recovering log #3
+2025/05/02-16:49:25.617 32c8 Reusing old log H:\beja\bot_whatsapp\bot_whatsapp\.wwebjs_auth\session\Default\Session Storage/000003.log 
